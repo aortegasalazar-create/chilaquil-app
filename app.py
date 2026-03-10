@@ -64,10 +64,14 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # --- CONTENIDO ---
-v1, col_logo, v2 = st.columns([1, 2, 1])
+# Cambiamos la proporción de las columnas para que la central sea más angosta
+# Proporción original [1, 2, 1] -> Nueva proporción [2, 1, 2] 
+v1, col_logo, v2 = st.columns([2, 1, 2]) 
+
 with col_logo:
     logo_url = "https://scontent.fntr1-2.fna.fbcdn.net/v/t39.30808-6/541503739_122215258532142370_5934744794648823732_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFWKG6akVesjlPmtEoKz5OcPkEyaHUEvmE-QTJodQS-YWZi_Z4_yK9_OkPntPPHRpUxkZQxoNS6e4QZiJ5KuHTW&_nc_ohc=kjm3a_ijRrgQ7kNvwFXWgyE&_nc_oc=Adk4qClZ88evhAu3YXHPYJNUSQhw0k0mmNkmslOWQb8AhLDOPQMIvPNBCWjkuN6AJrYiTEVksfhlbYY97nhpYTAQ&_nc_zt=23&_nc_ht=scontent.fntr1-2.fna&_nc_gid=NiPwkybC8KUukSBI-WF4mA&_nc_ss=8&oh=00_Afz2BU6YZVKoskP1mTQR51UMxZGKWufU5FLaQXAwONElaw&oe=69B52B79"
-    st.image(logo_url, use_container_width=True)
+    # Definimos un ancho fijo pequeño para asegurar el tamaño
+    st.image(logo_url, width=100)
 
 st.markdown("<h2>LA CASA DEL CHILAQUIL</h2>", unsafe_allow_html=True)
 st.markdown(f"<p><b>Origen:</b> {ORIGEN}</p>", unsafe_allow_html=True)
@@ -104,3 +108,4 @@ if st.button("🚀 CALCULAR COSTO"):
                 st.markdown('<div class="res-error"><h2 style="color:white !important; margin:0;">DIRECCIÓN INCORRECTA</h2></div>', unsafe_allow_html=True)
         except:
             st.markdown('<div class="res-error"><h2 style="color:white !important; margin:0;">DIRECCIÓN INCORRECTA</h2></div>', unsafe_allow_html=True)
+
